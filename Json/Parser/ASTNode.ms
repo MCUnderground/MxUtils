@@ -1,0 +1,7 @@
+(
+	struct ASTNode
+	(
+		type,
+		value
+	)
+)
