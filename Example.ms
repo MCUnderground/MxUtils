@@ -11,4 +11,8 @@
 		result = MxUtils.JSON.Deserialize(testJson.Content)
 		print(result.Address.Geo)
 	)
+
+	a = MxUtils.Types.List T:string
+	a.Add("sad")
+	a.Find("sad")
 )

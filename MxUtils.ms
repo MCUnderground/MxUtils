@@ -10,7 +10,8 @@
 		HTTP  = filein(localPath + @"Http\HTTP.ms"),
 		Regex = filein(localPath + @"Regex\Regex.ms"),
 		Task  = filein(localPath + @"Task\Task.ms"),
-		Benchmark  = filein(localPath + @"Benchmark\Benchmark.ms")
+		Benchmark  = filein(localPath + @"Benchmark\Benchmark.ms"),
+		Types = filein(localPath + @"Types\Types.ms")
 	)
 	MxUtils = MxUtils()
 )
