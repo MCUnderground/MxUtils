@@ -12,7 +12,8 @@
 		print(result.Address.Geo)
 	)
 
-	a = MxUtils.Types.List T:string
-	a.Add("sad")
-	a.Find("sad")
+	a = MxUtils.Types.Queue Size:2 T:string
+	a.Enqueue("sad")
+	a.Enqueue("lol")
+	a.Display()
 )
