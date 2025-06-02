@@ -21,6 +21,13 @@
  	- objectName: Base name for jsonObject, or if json is an array, its base name for each element in format of  "objectName_elemet(Index)"
 
  Returns interperted struct, which matches given JSON
+
+ MxUtils.JSON.Serialize object
+
+  Params:
+ 	- object
+
+ Returns json string, with object types appended as __type
  ```
 
  ## HTTP
