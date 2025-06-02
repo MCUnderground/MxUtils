@@ -17,7 +17,7 @@
 
 		fn Get index =
 		(
-			if(abs(index) < 1 or abs(index) > arr.count) do throw ("RemoveAt() Index must be within the bounds of the List.")
+			if(abs(index) < 1 or abs(index) > arr.count) do throw ("Get() Index must be within the bounds of the List.")
 			if(index < 0) then arr[arr.count+1+index] else arr[index]
 		),
 
@@ -30,14 +30,14 @@
 		fn Insert item index = 
 		(
 			if(IsNotOfType(item)) do throw ("Insert() Expected a value of type " + GetListType(item) + " got " + GetItemType(item) + ".")
-			if(index < 1 or index > arr.count+1) do throw ("RemoveAt() Index must be within the bounds of the List.")
+			if(index < 1 or index > arr.count+1) do throw ("Insert() Index must be within the bounds of the List.")
 			insertItem item arr index
 			arr
 		),
 
 		fn Find item = 
 		(
-			if(IsNotOfType(item)) do throw ("Insert() Expected a value of type " + GetListType(item) + " got " + GetItemType(item) + ".")
+			if(IsNotOfType(item)) do throw ("Find() Expected a value of type " + GetListType(item) + " got " + GetItemType(item) + ".")
 			findItem arr item
 		),
 

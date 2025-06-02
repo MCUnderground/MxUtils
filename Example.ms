@@ -13,7 +13,8 @@
 	)
 
 	a = MxUtils.Types.Queue Size:2 T:string
-	a.Enqueue("sad")
-	a.Enqueue("lol")
+	a.Enqueue("item1")
+	a.Enqueue("item2")
 	a.Display()
+	silentValue
 )

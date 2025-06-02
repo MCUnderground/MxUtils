@@ -1,11 +1,14 @@
 # MxUtils
  Helpful utilites for maxscript packed as one package MxUtils.
+ Example: [View Example](Example.ms)
 
  ## Packages
  	- JSON
  	- HTTP
  	- Regex
  	- Task
+ 	- Benchmark
+ 	- Types
 
 
  ## JSON
@@ -82,4 +85,47 @@
  	MxUtils.Benchmark.Run HelloWorldTitle args:#("MyProgram")
  	MxUtils.Benchmark.Run HelloWorldOptionalTitle
  	MxUtils.Benchmark.Run HelloWorldOptionalTitle optionalArgs:(Dictionary #(#title, "MyProgram"))
+ ```
+
+  ## Types
+
+ ```
+ Types: List, Queue
+
+ 1. List
+
+	 MxUtils.Types.List T:Box ZeroBasedIndex:false
+
+	 Params:
+	 	- type
+
+	 Functions:
+	   - Length
+	   - Get index
+	   - Add item
+	   - Insert item index
+	   - Find item 
+	   - Remove item aLL:false
+	   - RemoveAt index 
+	   - AsArray
+
+	 Returns a collection of strongly typed objects
+
+ 2. Queue
+
+	 MxUtils.Types.Queue Size:5 T:string
+
+	 Params:
+	   - Size
+	   - T(type)
+
+	 Functions:
+	   - Enqueue
+	   - Dequeue
+	   - TryDequeue %item
+	   - Peek
+	   - TryPeek %item
+	   - Display
+
+	 Returns a FIFO collection of strongly typed objects
  ```

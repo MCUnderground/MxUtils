@@ -2,16 +2,18 @@
 	struct Regex 
 	(
 		private
+		internal_letter_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_",
+		internal_digit_chars = "0123456789",
 		fn inString str char = (findString str char != undefined),
 
 		fn isWordChar char = 
 		(
-			wordChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_"
+			wordChars = internal_letter_chars
 		    inString wordChars char
 		),
 		fn isDigitChar char =
 		(
-		    digitChars = "0123456789"
+		    digitChars = internal_digit_chars
 		    inString digitChars char
 		),
 
