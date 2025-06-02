@@ -93,9 +93,92 @@
 			return execute(jsonObject)
 		),
 
-		fn Serialize strut = 
+		fn Serialize obj = 
 		(
+			if isKindOf obj StructDef then
+			(
+				throw ("Cannot serialize definition: ")
+			)
+			else if isStruct obj or isValidObj obj then
+			(
+				json = "{"
+
+				typeName = try (classof obj as string) catch ("Unknown")
+
+				json += "\"__type\": \"" + typeName + "\", "
+
+				props = getPropNames obj
+				for i = 1 to props.count do
+				(
+					propName = props[i]
+					propValue = getProperty obj propName
+					json += "\"" + propName as string + "\": " + Serialize propValue
+					if i != props.count do json += ", "
+				)
+				json += "}"
+				json
+			)
+			else if isKindOf obj Array then
+			(
+				json = "["
+				for i = 1 to obj.count do
+				(
+					json += Serialize obj[i]
+					if i != obj.count do json += ", "
+				)
+				json += "]"
+				json
+			)
+			else if isKindOf obj String then
+			(
+				"\"" + obj + "\"" 
+			)
+			else if isKindOf obj BooleanClass  then
+			(
+				if obj then "true" else "false"
+			)
+			else if obj == undefined then
+			(
+				"null"
+			)
+			else if isKindOf obj Number then
+			(
+				obj as string
+			)
+			else if isKindOf obj Point2 then
+			(
+				"[" + obj.x as string + ", " + obj.y as string + "]"
+			)
+			else if isKindOf obj Point3 then
+			(
+				"[" + obj.x as string + ", " + obj.y as string + ", " + obj.z as string + "]"
+			)
+			else if isKindOf obj Color then
+			(
+				"[" + obj.r as string + ", " + obj.g as string + ", " + obj.b as string + "]"
+			)
+			else if isKindOf obj Point4 then
+			(
+				"[" + obj.x as string + ", " + obj.y as string + ", " + obj.z as string + ", " + obj.w as string + "]"
+			)
+			else if isKindOf obj Box2 then
+			(
+				"{\"min\": " + Serialize obj.min + ", \"max\": " + Serialize obj.max + "}"
+			)
+			else if isKindOf obj Box3 then
+			(
+				"{\"min\": " + Serialize obj.min + ", \"max\": " + Serialize obj.max + "}"
+			)
+			else if isKindOf obj Matrix3 then
+			(
+				"{\"row1\": " + Serialize obj.row1 + ", \"row2\": " + Serialize obj.row2 + ", \"row3\": " + Serialize obj.row3 + ", \"pos\": " + Serialize obj.row4 + "}"
+			)
+			else
+			(
+				throw ("Cannot serialize type: " + classof obj as string)
+			)
 		)
+
 	)
 	JSON = JSON()
 )
